@@ -1,0 +1,24 @@
+.chats-show
+  %h1 Chat with #{@chat.phone_number}
+  
+  - @chat.messages.each do |message|
+    
+    - if message.is_incoming?
+      .left-bubble
+        .name
+          = message.from
+          %br #{time_ago_in_words(message.created_at).titlecase} Ago
+        .content this is some content from their message
+        
+    - else
+      .right-bubble
+        .name
+          Us
+          %br #{time_ago_in_words(message.created_at).titlecase} Ago
+        .content this is some content from their message
+
+= simple_form_for Message.new, remote: true do |f|
+  = f.input :body, :label => false
+  = f.hidden_field :to, value: @chat.phone_number
+  = f.hidden_field :chat_id, value: @chat.id
+  = f.submit
