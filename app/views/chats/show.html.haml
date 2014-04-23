@@ -18,9 +18,9 @@
           %br #{time_ago_in_words(message.created_at).titlecase} Ago
         .content
           = message.body
-
-= simple_form_for Message.new, remote: true do |f|
-  = f.input :body, :label => false
-  = f.hidden_field :to, value: @chat.phone_number
-  = f.hidden_field :chat_id, value: @chat.id
-  = f.submit
+.message_box
+  = simple_form_for Message.new, remote: true do |f|
+    = f.input :body, :label => false
+    = f.hidden_field :to, value: @chat.phone_number
+    = f.hidden_field :chat_id, value: @chat.id
+    = f.submit
