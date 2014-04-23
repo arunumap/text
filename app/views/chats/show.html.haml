@@ -8,7 +8,8 @@
         .name
           = message.from
           %br #{time_ago_in_words(message.created_at).titlecase} Ago
-        .content this is some content from their message
+        .content
+          = message.body
 
     - else
       .right-bubble
