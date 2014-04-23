@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
       @client.account.sms.messages.create(
         :from => '+16467362220',
         :to => params[:From],
-        :body => "Thanks for texting NYTechday, We will get back to you ASAP!"
+        :body => "Thanks for texting TechDay, We will get back to you ASAP!"
       )
     end
 
