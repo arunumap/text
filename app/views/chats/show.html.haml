@@ -15,7 +15,8 @@
         .name
           Us
           %br #{time_ago_in_words(message.created_at).titlecase} Ago
-        .content= message.body
+        .content
+          = message.body
 
 = simple_form_for Message.new, remote: true do |f|
   = f.input :body, :label => false
