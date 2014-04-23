@@ -4,15 +4,14 @@ class MessagesController < ApplicationController
 
   def incoming
 
-    @chat = Chat.find_by_phone_number(params[:from])
+    @chat = Chat.find_by_phone_number(params[:From])
 
     if !@chat
-      @chat = Chat.create(phone_number: params[:from], status: 'New')
+      @chat = Chat.create(phone_number: params[:From], status: 'New')
     end
 
     @chat.status = "New Incoming"
-    @message = @chat.messages.create(is_incoming: true, from: params[:from], to: params[:to], body: params[:body])
-
+    @message = @chat.messages.create(is_incoming: true, from: params[:From], to: params[:To], body: params[:Body])
     render :nothing => true
   end
 
