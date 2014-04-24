@@ -9,10 +9,11 @@
         %th Status
         %th
     %tbody
-      - @chats.each do |chat|
-        %tr
-          %td #{time_ago_in_words(chat.messages.last.created_at).titlecase} Ago
-          %td= chat.phone_number
-          %td= chat.messages.count
-          %td= chat.status
-          %td= link_to 'View Thread', chat
+      - if @chats
+        - @chats.each do |chat|
+          %tr
+            %td #{time_ago_in_words(chat.messages.last.created_at).titlecase} Ago
+            %td= chat.phone_number
+            %td= chat.messages.count
+            %td= chat.status
+            %td= link_to 'View Thread', chat
