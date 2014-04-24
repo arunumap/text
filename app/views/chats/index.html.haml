@@ -9,9 +9,9 @@
         %th Status
         %th
     %tbody
-      - if @chats
-        - @chats.each do |chat|
-          %tr
+      - @chats.each do |chat|
+        %tr
+          - if chat.messages.any?
             %td #{time_ago_in_words(chat.messages.last.created_at).titlecase} Ago
             %td= chat.phone_number
             %td= chat.messages.count
