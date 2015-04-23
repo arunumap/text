@@ -19,6 +19,12 @@ class MessagesController < ApplicationController
         :to => params[:From],
         :body => "Thanks for texting TechDay, We will get back to you ASAP!"
       )
+
+      @client.account.sms.messages.create(
+        :from => '+16467362220',
+        :to => '+12192180980',
+        :body => 'You have an incoming message.'
+        )
     end
 
     @chat.status = "New Incoming"

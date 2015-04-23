@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414192520) do
+ActiveRecord::Schema.define(version: 20140923215340) do
+
+  create_table "admin_numbers", force: true do |t|
+    t.string   "phone_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "chats", force: true do |t|
     t.string   "phone_number"
@@ -19,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140414192520) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "status"
+    t.string   "admin_number"
+    t.integer  "admin_number_id"
   end
 
   create_table "messages", force: true do |t|

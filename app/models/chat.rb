@@ -5,5 +5,6 @@ class Chat < ActiveRecord::Base
   
   # Associations
   has_many :messages
+  belongs_to :admin_numbers
   
 end
